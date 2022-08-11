@@ -1,0 +1,29 @@
+import rclpy
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge
+
+img_data=//
+
+class PoseNetPublisher(self):
+    def __init__(self):
+        super.__init__("pose_net_pub")
+        self.publisher = self.create_publisher(Image,"posenet",10)   
+        timer_period =0.5
+        self.timer = self.create_timer(timer_period,self.publish_callback)
+        self.cv_bridge = CvBridge()
+
+    def publish_callback(self):
+        img=Image()
+        img=self.cv_bridge.cv2_to_imgmsg(img_data, "bgr8")
+        self.publisher.publish(img)
+
+def main(args=None):
+    rclpy.init(args=args)
+    pose_net_pub = PoseNetPublisher()
+    pose_net_pub.get_logger().info("image published")
+    pose_net_pub.destroy_node()
+
+    rclpy.shutdown()
+
+if __name__=="__main__":
+    main()
