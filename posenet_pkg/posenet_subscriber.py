@@ -2,6 +2,7 @@ import rclpy
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 from data_loader import get_loader
+from solver import Solver
 
 class PoseNetSubscriber(self):
     def __init__(self):
