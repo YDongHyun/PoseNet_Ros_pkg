@@ -7,9 +7,7 @@ img_data=//
 class PoseNetPublisher(self):
     def __init__(self):
         super.__init__("pose_net_pub")
-        self.publisher = self.create_publisher(Image,"posenet",10)   
-        timer_period =0.5
-        self.timer = self.create_timer(timer_period,self.publish_callback)
+        self.publisher = self.create_publisher(Image,"posenet",10)
         self.cv_bridge = CvBridge()
 
     def publish_callback(self):
