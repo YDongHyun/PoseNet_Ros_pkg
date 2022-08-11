@@ -4,7 +4,7 @@
 
 Ros2에서 PoseNet을 실행하기 위해 test와 관련된 파일을 가져왔다.
 - model.py
-- test.py
+- data_loader.py
 - solver.py
 - pose_utils.py
 
