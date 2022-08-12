@@ -20,6 +20,8 @@ setup(
     tests_require=['pytest'],
     entry_points={
         'console_scripts': [
+            'posenet_publisher = posenet_pkg.posenet_publisher:main',
+            'posenet_subscriber = posenet_pkg.posenet_subscriber:main',
         ],
     },
 )
