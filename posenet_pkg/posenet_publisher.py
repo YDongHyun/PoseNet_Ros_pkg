@@ -1,13 +1,16 @@
 import rclpy
+import cv2
+import matplotlib.pyplot as plt
+from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 
-img_data=//
+img_data = plt.imread('posenet_pkg/posenet_pkg/test/test.png')
 
-class PoseNetPublisher(self):
+class PoseNetPublisher(Node):
     def __init__(self):
-        super.__init__("pose_net_pub")
-        self.publisher = self.create_publisher(Image,"posenet",10)
+        super().__init__("pose_net_pub")
+        self.publisher = self.create_publisher(Image,"posenet",10)   
         self.cv_bridge = CvBridge()
 
     def publish_callback(self):

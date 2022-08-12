@@ -251,7 +251,7 @@ class Solver():
         self.model.eval()
 
         if self.config.test_model is None:
-            test_model_path = self.model_save_path + '/best_net.pth'
+            test_model_path = model + '/best_net.pth'
         else:
             test_model_path = self.model_save_path + '/{}_net.pth'.format(self.config.test_model)
 
