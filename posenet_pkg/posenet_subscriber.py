@@ -29,7 +29,7 @@ def main(args=None):
     rclpy.init(args=args)
     node= PoseNetSubscriber()
     try:
-        node.get_logger().info("Waitting the msg....")
+        node.get_logger().info("Waitting msg....")
         rclpy.spin(node)
     except KeyboardInterrupt:
         node.get_logger.info('Keyboard Interrupt (SIGINT)')
