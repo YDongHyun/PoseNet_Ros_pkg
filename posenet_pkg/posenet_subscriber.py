@@ -20,7 +20,7 @@ class PoseNetSubscriber(Node):
         self.get_logger().info("image subscribed")
         msg=self.cv_bridge.imgmsg_to_cv2(img)
         cudnn.benchmark = True
-        data_loader = get_loader(Resnet, msg, config.metadata_path,test, 1)
+        data_loader = get_loader('Resnet', msg, config.metadata_path,'test', 1)
         sol=Solver(data_loader)
         print(sol.test())
       
