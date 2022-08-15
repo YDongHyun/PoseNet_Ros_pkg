@@ -19,8 +19,9 @@ class PoseNetSubscriber(Node):
     def sub_callback(self,img):
         self.get_logger().info("image subscribed")
         msg=self.cv_bridge.imgmsg_to_cv2(img)
+        
         cudnn.benchmark = True
-        data_loader = get_loader('Resnet', msg, config.metadata_path,'test', 1)
+        data_loader = get_loader(model='Resnet', image_path='/home/ydh/posenet_pkg/posenet_pkg/posenet_pkg/test/test.png',mode='test', batch_size=1)
         sol=Solver(data_loader)
         print(sol.test())
       

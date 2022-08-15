@@ -16,44 +16,17 @@ from PIL import Image
 
 
 class CustomDataset(Dataset):
-    def __init__(self, image_path, metadata_path, mode, transform, num_val=100):
+    def __init__(self, image_path, mode, transform, num_val=100):
         self.image_path = image_path
-        self.metadata_path = metadata_path
+
         self.mode = mode
         self.transform = transform
-        raw_lines = open(self.metadata_path, 'r').readlines()
-        self.lines = raw_lines[3:]
-
-        print(self.lines.__len__())
-        print(self.lines[0])
 
         self.test_filenames = []
         self.test_poses = []
         self.train_filenames = []
         self.train_poses = []
 
-        for i, line in enumerate(self.lines):
-            splits = line.split()
-            filename = splits[0]
-            values = splits[1:]
-            values = list(map(lambda x: float(x.replace(",", "")), values))
-
-            filename = os.path.join(self.image_path, filename)
-
-            if self.mode == 'train':
-                # if i > num_val:
-                self.train_filenames.append(filename)
-                self.train_poses.append(values)
-            elif self.mode == 'test':
-                self.test_filenames.append(filename)
-                self.test_poses.append(values)
-            elif self.mode == 'val':
-                self.test_filenames.append(filename)
-                self.test_poses.append(values)
-                if i > num_val:
-                    break
-            else:
-                assert 'Unavailable mode'
 
         self.num_train = self.train_filenames.__len__()
         self.num_test = self.test_filenames.__len__()
@@ -79,7 +52,7 @@ class CustomDataset(Dataset):
 
 
 
-def get_loader(model, image_path, metadata_path, mode, batch_size, is_shuffle=False, num_val=100):
+def get_loader(model, image_path,mode, batch_size, is_shuffle=False, num_val=100):
 
     # Predefine image size
     if model == 'Googlenet':
@@ -100,8 +73,8 @@ def get_loader(model, image_path, metadata_path, mode, batch_size, is_shuffle=Fa
         ])
 
         # metadata_path_val = '/mnt/data2/image_based_localization/posenet/KingsCollege/dataset_test.txt'
-        datasets = {'train': CustomDataset(image_path, metadata_path, 'train', transform, num_val),
-                    'val': CustomDataset(image_path, metadata_path, 'val', transform, num_val)}
+        datasets = {'train': CustomDataset(image_path, 'train', transform, num_val),
+                    'val': CustomDataset(image_path, 'val', transform, num_val)}
         # data_loaders = {x: DataLoader(datasets[x], batch_size, is_shuffle, num_workers=batch_size)
         #                 for x in ['train', 'val']}
         data_loaders = {'train': DataLoader(datasets['train'], batch_size, is_shuffle, num_workers=4),
@@ -116,7 +89,7 @@ def get_loader(model, image_path, metadata_path, mode, batch_size, is_shuffle=Fa
 
         batch_size = 1
         is_shuffle = False
-        dataset = CustomDataset(image_path, metadata_path, 'test', transform)
+        dataset = CustomDataset(image_path, 'test', transform)
         data_loaders = DataLoader(dataset, batch_size, is_shuffle, num_workers=4)
 
     else:
