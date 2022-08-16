@@ -25,13 +25,9 @@ class CustomDataset(Dataset):
         self.train_filenames = []
         self.train_poses = []
         self.num_train = self.train_filenames.__len__()
-        self.num_test = self.test_filenames.__len__()
-        print("Number of Train", self.num_train)
-        print("Number of Test", self.num_test)
-        self.img()
-        
-    
-    def img(self):
+        self.num_test = 1
+
+    def __getitem__(self,index):
         image = self.image_path
         return self.transform(image)
 
