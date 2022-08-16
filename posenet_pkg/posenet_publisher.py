@@ -9,7 +9,7 @@ class PoseNetPublisher(Node):
     def __init__(self):
         super().__init__("pose_net_pub")
         self.publisher = self.create_publisher(Image,'posenet',10)   
-        self.img_data = plt.imread('posenet_pkg/posenet_pkg/test/test.png')
+        self.img_data = cv2.imread('posenet_pkg/posenet_pkg/test/test.png')
         self.cv_bridge = CvBridge()
 
     def publish_callback(self):

@@ -14,11 +14,9 @@ import torch.nn.functional as F
 import matplotlib.pyplot as plt
 from PIL import Image
 
-
 class CustomDataset(Dataset):
     def __init__(self, image_path, mode, transform, num_val=100):
         self.image_path = image_path
-
         self.mode = mode
         self.transform = transform
 
@@ -26,22 +24,16 @@ class CustomDataset(Dataset):
         self.test_poses = []
         self.train_filenames = []
         self.train_poses = []
-
-
         self.num_train = self.train_filenames.__len__()
         self.num_test = self.test_filenames.__len__()
         print("Number of Train", self.num_train)
         print("Number of Test", self.num_test)
-
-    def __getitem__(self, index):
-        if self.mode == 'train':
-            image = Image.open(self.train_filenames[index])
-            pose = self.train_poses[index]
-        elif self.mode in ['val', 'test']:
-            image = Image.open(self.test_filenames[index])
-            pose = self.test_poses[index]
-
-        return self.transform(image), torch.Tensor(pose)
+        self.img()
+        
+    
+    def img(self):
+        image = self.image_path
+        return self.transform(image)
 
     def __len__(self):
         if self.mode == 'train':
