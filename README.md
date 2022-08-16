@@ -25,3 +25,8 @@ data_loader.py실행시 pytorch가 잘 설치되있음에도 <No moudle named 't
 posenet_publisher <-> subscriber 통신 구현
 - subscriber node에서 posenet 실행 오류 (오류 해결중)
 - 이미지 파일 통신 확인
+
+## 8.16
+
+posenet 실행시 data_loader를 못받는 오류 발생 
+- data_loader 패키지에서 이미지를 읽지 못하는 오류, 코드를 수정하여 해결
