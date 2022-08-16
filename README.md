@@ -30,3 +30,4 @@ posenet_publisher <-> subscriber 통신 구현
 
 posenet 실행시 data_loader를 못받는 오류 발생 
 - data_loader 패키지에서 이미지를 읽지 못하는 오류, 코드를 수정하여 해결
+- pos_out, ori_out 출
