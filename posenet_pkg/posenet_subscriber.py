@@ -21,16 +21,15 @@ class PoseNetSubscriber(Node):
 
     def sub_callback(self,img):
         msg=self.cv_bridge.imgmsg_to_cv2(img)
-        pil_image=Image.fromarray(msg)
+        color_coverted = cv2.cvtColor(msg, cv2.COLOR_BGR2RGB)
+        pil_image=Image.fromarray(color_coverted)
         cudnn.benchmark = True
         data_loader = get_loader(model='Resnet', image_path=pil_image ,mode='test', batch_size=1)
         sol=Solver(data_loader)
-        a,b=sol.test()
+        pos,ori=sol.test()
         self.get_logger().info("image subscribed")
-        
-        print(a)
-
-      
+        print("pos",pos)
+        print("ori",ori)  
 
 def main(args=None):
     rclpy.init(args=args)

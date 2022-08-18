@@ -27,6 +27,7 @@ class CustomDataset(Dataset):
         self.num_train = self.train_filenames.__len__()
         self.num_test = 1
 
+        
     def __getitem__(self,index):
         image = self.image_path
         return self.transform(image)
@@ -84,5 +85,4 @@ def get_loader(model, image_path,mode, batch_size, is_shuffle=False, num_val=100
         assert 'Unavailable Mode'
 
     return data_loaders
-
 
