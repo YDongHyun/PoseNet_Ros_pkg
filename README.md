@@ -34,3 +34,9 @@ posenet 실행시 data_loader를 못받는 오류 발생
 
 ![image](https://user-images.githubusercontent.com/80799025/185359334-36c10185-ce62-4807-af68-fde62918fd84.png)
 
+
+## 8.18
+- posenet 이미지 publish시 image path를 입력받아오도록 설정
+- posenet 결과 정상 출력 확인 및 기존 train파일의 라벨링값과 비교하여 오차확인, 예상된 오차범위내 오차 발생
+
+![image](https://user-images.githubusercontent.com/80799025/185362564-8f43ac00-ea9c-410b-905a-04dd78622060.png)
