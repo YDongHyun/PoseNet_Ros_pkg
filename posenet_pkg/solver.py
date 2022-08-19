@@ -40,8 +40,7 @@ class Solver():
 
         self.model.load_state_dict(torch.load(test_model_path))
 
-        for i, inputs in enumerate(self.data_loader):
-            print(i)
+        for inputs in (self.data_loader):
             inputs = inputs.to(self.device)
             pos_out, ori_out, _ = self.model(inputs)
             pos_out = pos_out.squeeze(0).detach().cpu().numpy()
