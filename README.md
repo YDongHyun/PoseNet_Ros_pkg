@@ -41,3 +41,6 @@ posenet 실행시 data_loader를 못받는 오류 발생
 
 ![image](https://user-images.githubusercontent.com/80799025/185363574-df80e2fb-9b8c-4e8a-b3d3-287649457667.png)
 
+## 8.21
+- posenet_subscriber 노드를 sub_pub으로 publish, subscribe를 동시에 실행하도록 설계
+- sixdof_subscriber노드를 만들어 publishe된 6dof값을 받아옴
