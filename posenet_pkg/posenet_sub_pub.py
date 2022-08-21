@@ -29,7 +29,6 @@ class PoseNetSub_Pub(Node):
         color_coverted = cv2.cvtColor(msg, cv2.COLOR_BGR2RGB)
         pil_image=Image.fromarray(color_coverted)
         cudnn.benchmark = True
-        color_coverted = cv2.cvtColor(msg, cv2.COLOR_BGR2RGB)
         data_loader = get_loader(model='Resnet', image_path=pil_image ,mode='test', batch_size=1)
         sol=Solver(data_loader)
         pos,ori=sol.test()
