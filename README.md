@@ -48,6 +48,6 @@ posenet 실행시 data_loader를 못받는 오류 발생
 ## 8.22
 - visualization 노드제작.
 - 받은 이미지의 6dof값에서 position x,y값을 시각화하도록 설계,
-- 연속된 이미지 테스트 결과
+- 연속된 이미지 테스트 결과 (seq2)
 ![image](https://user-images.githubusercontent.com/80799025/185949528-f1f54add-934e-40a1-a25c-8a9e004cf45d.png)
 
