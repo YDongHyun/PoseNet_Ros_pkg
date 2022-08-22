@@ -8,6 +8,8 @@ from PIL import ImageDraw
 import numpy as np
 import matplotlib.pyplot as plt
 
+
+
 class Visualization(Node):
     def __init__(self):
         super().__init__("visualization")
@@ -17,18 +19,20 @@ class Visualization(Node):
     def sub_callback(self,msg):
         image = Image.open('/home/ydh/posenet_pkg/posenet_pkg/posenet_pkg/map.png')
         image = image.resize((1400, 400))
-        image = pil_draw_point(image, ((msg.position.x+40)*10,(msg.position.y+40)*10))
+        arr.append([(msg.position.x+50)*10,(msg.position.y+50)*10])
+        for i,j in arr:
+            image = pil_draw_point(image, (i,j))
         plt.imshow(np.array(image))
         plt.show()
 
+arr=[]
  
 def pil_draw_point(image, point):
     x, y = point
     draw = ImageDraw.Draw(image)
-    radius = 2
+    radius = 5
     draw.ellipse((x - radius, y - radius, x + radius, y + radius), fill=(0, 0, 255))
     return image
-
 
 def main(args=None):
     rclpy.init(args=args)
