@@ -53,3 +53,6 @@ posenet 실행시 data_loader를 못받는 오류 발생
 
 최종 빌드 모습
 ![image](https://user-images.githubusercontent.com/80799025/185950601-2d0af04b-808a-47fd-a2ec-91524fd97128.png)
+
+PoseNet 출처:
+https://github.com/youngguncho/PoseNet-Pytorch
