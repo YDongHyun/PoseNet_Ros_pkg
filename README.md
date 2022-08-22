@@ -51,3 +51,5 @@ posenet 실행시 data_loader를 못받는 오류 발생
 - 연속된 이미지 테스트 결과 (seq2)
 ![image](https://user-images.githubusercontent.com/80799025/185949528-f1f54add-934e-40a1-a25c-8a9e004cf45d.png)
 
+최종 빌드 모습
+![image](https://user-images.githubusercontent.com/80799025/185950601-2d0af04b-808a-47fd-a2ec-91524fd97128.png)
