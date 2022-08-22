@@ -23,6 +23,7 @@ setup(
             'posenet_publisher = posenet_pkg.posenet_publisher:main',
             'posenet_sub_pub = posenet_pkg.posenet_sub_pub:main',
             'sixdof_subscriber = posenet_pkg.sixdof_subscriber:main',
+            'visualization = posenet_pkg.visualization:main',
         ],
     },
 )
